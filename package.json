@@ -20,5 +20,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "start": "webpack serve"
+  },
+  "dependencies": {
+    "date-fns": "^2.30.0"
   }
 }

@@ -1,0 +1,46 @@
+body {
+    background-color: darkgrey;
+    color: oldlace;
+    border: 1px solid red;
+    text-align: center;
+}
+
+.newEntryButton {
+    padding:8px 12px;
+    margin:8px 0 0;
+    font-family:'Montserrat',sans-serif;
+    border:2px solid #78788c;
+    background:0;color:#5a5a6e;
+    cursor:pointer;
+    transition:all .3s
+}
+
+.newEntryButton:hover{
+    background:#78788c;
+    color:#fff
+  }
+
+.entryForm {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+}
+  
+.box{
+    width:20rem;
+    height:17.5rem;
+    background:#e6e6e6;
+    border-radius:8px;
+    box-shadow:0 0 40px -10px #000;
+    padding:1.5rem 2rem;
+    max-width:calc(100vw - 40px);
+    box-sizing:border-box;
+    font-family:'Montserrat',sans-serif;
+    margin: 1.5rem;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 1rem;
+  }

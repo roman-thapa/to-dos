@@ -2,7 +2,7 @@ export default function entryForm() {
     const form = document.createElement("form");
     form.className = "entryForm"
     const ul = document.createElement("ul");
-    ul.className = "dropdown-content box";
+    ul.className = "box";
     const li1 = createLiWithInput("input","title", "task_title", "Title", "text", true);
     const li2 = createLiWithInput("textarea", "description", "task_description", "Description", "text", true);
     const li3 = createLiWithInput("input", "date", "task_dueDate", "Due Date", "date", true);
@@ -56,6 +56,5 @@ const createLiWithInput = function(inputType, id, name, labelText, type, require
     selectElement.appendChild(optionElement);
   });
   li.appendChild(selectElement);
-
   return li;
 }

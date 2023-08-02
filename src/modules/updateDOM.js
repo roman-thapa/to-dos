@@ -1,5 +1,5 @@
 import entryForm from "./entryForm";
-import updateFormData from "./showEntry";
+import updateFormData from "./updateEntry";
 
 
 const mainContainer = document.querySelector('#app');

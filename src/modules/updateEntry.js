@@ -3,6 +3,7 @@ export default function updateFormData(enteredForm) {
     const descriptionOfToDo = document.querySelector("#description");
     const dueDateOfToDo = document.querySelector("#date");
     const taskPriorityOfToDo = document.querySelector("#task_priority");
+    
     const entryNumber = Object.keys(enteredForm).length;
     if(titleOfToDo.value !== '' && 
         descriptionOfToDo.value !== "" &&

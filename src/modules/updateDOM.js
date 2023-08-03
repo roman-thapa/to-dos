@@ -16,33 +16,39 @@ const entryToDoForm = document.createElement('div');
 newEntryButton.addEventListener('click', () => showEntryBox())
 
 const toDoList = document.createElement('div');
+toDoList.className = "todo--list"
 
 const showEntryBox = function() {
-    entryToDoForm.appendChild(entryForm())
-  mainContainer.appendChild(entryToDoForm)
+  entryToDoForm.appendChild(entryForm())
+  newEntryButton.insertAdjacentElement("afterend", entryToDoForm)
   const submitForm = document.querySelector('.addTask');
   submitForm.addEventListener('click', submit);
+  
 }
 
 const submit = function(event) {
   event.preventDefault();
-  updateFormData(enteredForm);
-  entryToDoForm.removeChild(entryToDoForm.firstChild);
-  toDoList.appendChild(appendLastTaskToDiv(enteredForm));
+  const gotToDos = updateFormData(enteredForm);
+  if (gotToDos) {
+    entryToDoForm.removeChild(entryToDoForm.firstChild); 
+    toDoList.appendChild(appendLastTaskToDiv(enteredForm));
+  } else {
+    alert("Fill Every Field ")
+  }
 } 
 
-function appendLastTaskToDiv(tasksData) {
+const appendLastTaskToDiv = (tasksData) => {
   const lastTaskIndex = Object.keys(tasksData).length - 1;
   const lastTaskData = tasksData[lastTaskIndex];
 
   const taskDiv = document.createElement('div');
-  taskDiv.classList.add('task');
+  taskDiv.classList.add('box');
 
   const titleElement = document.createElement('h2');
-  titleElement.textContent = lastTaskData.title;
+  titleElement.textContent = 'Title: ' + lastTaskData.title;
 
   const descriptionElement = document.createElement('p');
-  descriptionElement.textContent = lastTaskData.description;
+  descriptionElement.textContent = 'Description: ' + lastTaskData.description;
 
   const dueDateElement = document.createElement('p');
   dueDateElement.textContent = 'Due Date: ' + lastTaskData.dueDate;

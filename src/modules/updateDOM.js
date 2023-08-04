@@ -19,6 +19,7 @@ const toDoList = document.createElement('div');
 toDoList.className = "todo--list"
 
 const showEntryBox = function() {
+  newEntryButton.disabled = true;
   entryToDoForm.appendChild(entryForm())
   newEntryButton.insertAdjacentElement("afterend", entryToDoForm)
   const submitForm = document.querySelector('.addTask');
@@ -32,6 +33,7 @@ const submit = function(event) {
   if (gotToDos) {
     entryToDoForm.removeChild(entryToDoForm.firstChild); 
     toDoList.appendChild(appendLastTaskToDiv(enteredForm));
+    newEntryButton.disabled = false;
   } else {
     alert("Fill Every Field ")
   }

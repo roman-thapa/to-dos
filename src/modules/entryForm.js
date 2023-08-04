@@ -3,13 +3,13 @@ export default function entryForm() {
     form.className = "entryForm"
     const ul = document.createElement("ul");
     ul.className = "box";
-    const li1 = createLiWithInput("input","title", "task_title", "Title", "text", true);
-    const li2 = createLiWithInput("textarea", "description", "task_description", "Description", "text", true);
-    const li3 = createLiWithInput("input", "date", "task_dueDate", "Due Date", "date", true);
-    const li4 = createDropdownLi("task_priority", "Priority", true, [
-      { text: "High", value: "high" },
-      { text: "Medium", value: "medium" },
-      { text: "Low", value: "low" },
+    const li1 = createLiWithInput("input","title", "task_title", "Title: ", "text", true);
+    const li2 = createLiWithInput("textarea", "description", "task_description", "Description: ", "text", true);
+    const li3 = createLiWithInput("input", "date", "task_dueDate", "Due Date: ", "date", true);
+    const li4 = createDropdownLi("task_priority", "Priority: ", true, [
+      { text: "High", value: "High" },
+      { text: "Medium", value: "Medium" },
+      { text: "Low", value: "Low" },
     ]);
     const button = document.createElement("button");
     button.className = "addTask";

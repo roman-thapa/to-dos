@@ -1,5 +1,5 @@
 export default function appendLastTaskToDiv(tasksData) {
-    const lastTaskIndex = Object.keys(tasksData).length - 1;
+    const lastTaskIndex = Object.keys(tasksData).length > 0 ? Math.max(...Object.keys(tasksData)) : '';
     const lastTaskData = tasksData[lastTaskIndex];
   
     const taskDiv = document.createElement('div');
@@ -33,6 +33,7 @@ export default function appendLastTaskToDiv(tasksData) {
       const taskDiv = document.getElementById(taskId);
       if (taskDiv) {
         taskDiv.remove();
+        delete tasksData[lastTaskIndex];
       }
     });
   

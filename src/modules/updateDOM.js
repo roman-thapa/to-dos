@@ -1,7 +1,7 @@
 import entryForm from "./entryForm";
 import updateFormData from "./updateEntry";
 import appendLastTaskToDiv from "./showToDo";
-import { isPast, isToday, isTomorrow } from 'date-fns';
+import filterTodo from "./filterToDos";
 
 const mainContainer = document.querySelector('#app');
 const title = document.createElement("h1");
@@ -16,19 +16,19 @@ newEntryButton.className = "newEntryButton";
 const filterToDosDiv = document.createElement('div');
 filterToDosDiv.classList.add('filterToDos');
 
-const overDueButton = document.createElement('button');
-overDueButton.innerText = 'Over Due';
-
 const todayButton = document.createElement('button');
 todayButton.innerText = 'Today';
+todayButton.addEventListener('click', () => filterTodo("today", enteredForm));
 
 const tomorrowButton = document.createElement('button');
 tomorrowButton.innerText = 'Tomorrow';
+tomorrowButton.addEventListener('click', () => filterTodo("tomorrow", enteredForm));
 
 const allButton = document.createElement('button');
 allButton.innerText = 'All';
+allButton.addEventListener('click', ()=>  filterTodo("all ", enteredForm))
 
-const entryToDoForm = document.createElement('div');
+const entryToDoForm = document.createElement('div');  
 newEntryButton.addEventListener('click', () => showEntryBox())
 
 const toDoList = document.createElement('div');
@@ -55,7 +55,6 @@ const submit = function(event) {
   }
 } 
 
-filterToDosDiv.appendChild(overDueButton);
 filterToDosDiv.appendChild(todayButton);
 filterToDosDiv.appendChild(tomorrowButton);
 filterToDosDiv.appendChild(allButton);

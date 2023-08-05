@@ -1,6 +1,7 @@
 import entryForm from "./entryForm";
 import updateFormData from "./updateEntry";
-import appendLastTaskToDiv from "./showToDo"
+import appendLastTaskToDiv from "./showToDo";
+import { isPast, isToday, isTomorrow } from 'date-fns';
 
 const mainContainer = document.querySelector('#app');
 const title = document.createElement("h1");
@@ -12,11 +13,26 @@ const newEntryButton = document.createElement('button');
 newEntryButton.innerText = "+";
 newEntryButton.className = "newEntryButton";
 
+const filterToDosDiv = document.createElement('div');
+filterToDosDiv.classList.add('filterToDos');
+
+const overDueButton = document.createElement('button');
+overDueButton.innerText = 'Over Due';
+
+const todayButton = document.createElement('button');
+todayButton.innerText = 'Today';
+
+const tomorrowButton = document.createElement('button');
+tomorrowButton.innerText = 'Tomorrow';
+
+const allButton = document.createElement('button');
+allButton.innerText = 'All';
+
 const entryToDoForm = document.createElement('div');
 newEntryButton.addEventListener('click', () => showEntryBox())
 
 const toDoList = document.createElement('div');
-toDoList.className = "todo--list"
+toDoList.className = "todo--list";
 
 const showEntryBox = function() {
   newEntryButton.disabled = true;
@@ -39,49 +55,12 @@ const submit = function(event) {
   }
 } 
 
-/*const appendLastTaskToDiv = (tasksData) => {
-  const lastTaskIndex = Object.keys(tasksData).length - 1;
-  const lastTaskData = tasksData[lastTaskIndex];
-
-  const taskDiv = document.createElement('div');
-  taskDiv.classList.add('box');
-  taskDiv.id = lastTaskIndex;
-
-  const closeButton = document.createElement('button');
-  closeButton.textContent = 'X';
-  closeButton.classList.add('close-btn');
-
-  const titleElement = document.createElement('h2');
-  titleElement.textContent = 'Title: ' + lastTaskData.title;
-
-  const descriptionElement = document.createElement('p');
-  descriptionElement.textContent = 'Description: ' + lastTaskData.description;
-
-  const dueDateElement = document.createElement('p');
-  dueDateElement.textContent = 'Due Date: ' + lastTaskData.dueDate;
-
-  const taskPriorityElement = document.createElement('p');
-  taskPriorityElement.textContent = 'Priority: ' + lastTaskData.taskPriority;
-
-  taskDiv.appendChild(closeButton); 
-  taskDiv.appendChild(titleElement);
-  taskDiv.appendChild(descriptionElement);
-  taskDiv.appendChild(dueDateElement);
-  taskDiv.appendChild(taskPriorityElement);
-
-  closeButton.addEventListener("click", function () {
-    const taskId = closeButton.closest(".box").id;
-    const taskDiv = document.getElementById(taskId);
-    if (taskDiv) {
-      taskDiv.remove();
-    }
-  });
-
-
-  return taskDiv;
-}*/
-
+filterToDosDiv.appendChild(overDueButton);
+filterToDosDiv.appendChild(todayButton);
+filterToDosDiv.appendChild(tomorrowButton);
+filterToDosDiv.appendChild(allButton);
 
 mainContainer.appendChild(title);
+mainContainer.appendChild(filterToDosDiv);
 mainContainer.appendChild(newEntryButton);
 mainContainer.appendChild(toDoList);

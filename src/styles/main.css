@@ -16,7 +16,8 @@ body {
 
 .newEntryButton:hover{
     background:#78788c;
-    color:#fff
+    color:#fff;
+    font-weight: bolder;
   }
 
 .entryForm {

@@ -1,6 +1,6 @@
 import entryForm from "./entryForm";
 import updateFormData from "./updateEntry";
-
+import appendLastTaskToDiv from "./showToDo"
 
 const mainContainer = document.querySelector('#app');
 const title = document.createElement("h1");
@@ -39,7 +39,7 @@ const submit = function(event) {
   }
 } 
 
-const appendLastTaskToDiv = (tasksData) => {
+/*const appendLastTaskToDiv = (tasksData) => {
   const lastTaskIndex = Object.keys(tasksData).length - 1;
   const lastTaskData = tasksData[lastTaskIndex];
 
@@ -79,7 +79,7 @@ const appendLastTaskToDiv = (tasksData) => {
 
 
   return taskDiv;
-}
+}*/
 
 
 mainContainer.appendChild(title);

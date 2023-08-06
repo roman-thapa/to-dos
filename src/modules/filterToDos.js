@@ -5,6 +5,7 @@ export default function filterTodo(filterThis, data) {
     
     for (const key in data) {
         if (data.hasOwnProperty(key)) {
+            const currentTodo = document.getElementById(key)
             const toDo = data[key];
             const dueDate = parseISO(toDo.dueDate);
             
@@ -16,6 +17,9 @@ export default function filterTodo(filterThis, data) {
             
             ) {
                 filteredData[key] = toDo;
+                currentTodo.style.display = "block";
+            } else {
+                currentTodo.style.display = "none";
             }
         }
     }

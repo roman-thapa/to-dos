@@ -1,3 +1,5 @@
+import DataManagement from "./dataManagement";
+
 export default function updateFormData(enteredForm) {
     const titleOfToDo = document.querySelector("#title");
     const descriptionOfToDo = document.querySelector("#description");
@@ -15,6 +17,7 @@ export default function updateFormData(enteredForm) {
                 dueDate: dueDateOfToDo.value,
                 taskPriority: taskPriorityOfToDo.value
         }
+        DataManagement.setData(enteredForm);
         return enteredForm;
     } else {
         return false;

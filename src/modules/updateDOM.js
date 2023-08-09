@@ -7,7 +7,17 @@ const mainContainer = document.querySelector('#app');
 const title = document.createElement("h1");
 title.innerText = "To do";
 
-const enteredForm = {};
+let enteredForm = {};
+
+document.addEventListener('DOMContentLoaded', () => {
+  const storedData = localStorage.getItem('formData');
+  if (storedData) {
+    enteredForm = JSON.parse(storedData);
+    for (const key in enteredForm) {
+      toDoList.appendChild(appendLastTaskToDiv(enteredForm, key, true));
+    }
+  }
+});
 
 const newEntryButton = document.createElement('button');
 newEntryButton.innerText = "+";

@@ -1,4 +1,4 @@
-import { isPast, isToday, isTomorrow, parseISO } from 'date-fns';
+import { isToday, isTomorrow, parseISO } from 'date-fns';
 
 export default function filterTodo(filterThis, data) {
     const filteredData = {};
@@ -23,6 +23,4 @@ export default function filterTodo(filterThis, data) {
             }
         }
     }
-
-    console.log(filterThis, data, filteredData);
 }
